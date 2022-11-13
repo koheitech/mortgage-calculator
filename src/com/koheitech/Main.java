@@ -2,16 +2,15 @@ package com.koheitech;
 
 import java.text.NumberFormat;
 import java.util.Locale;
-import java.util.Scanner;
 
 public class Main {
     final static byte MONTH_IN_YEAR = 12;
     final static byte PERCENT = 100;
     public static void main(String[] args) {
 
-        double principal = readNumber("Principle($1K - $1M): ", 1_000, 1_000_000);
-        double annualInterest = readNumber("Annual Interest Rate(%): ", 0.01, 100);
-        double year = readNumber("Period (Year): ", 1, 30);
+        double principal = Console.readNumber("Principle($1K - $1M): ", 1_000, 1_000_000);
+        double annualInterest = Console.readNumber("Annual Interest Rate(%): ", 0.01, 100);
+        double year = Console.readNumber("Period (Year): ", 1, 30);
 
         printMortgage(principal, annualInterest, year);
         printPaymentSchedule(principal, annualInterest, year);
@@ -31,18 +30,6 @@ public class Main {
         System.out.println("---------- MORTGAGE ----------");
         String mortgageFormatted = NumberFormat.getCurrencyInstance(Locale.US).format(mortgage);
         System.out.println("Monthly Payments: " + mortgageFormatted);
-    }
-
-    public static double readNumber(String prompt, double min, double max) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print(prompt);
-        double input;
-        while (true) {
-            input = scanner.nextDouble();
-            if (min <= input && input <= max) break;
-            System.out.println("Enter a number between " + min + " and " + max);
-        }
-        return input;
     }
 
     public static double calculateBalance(double principal, double annualInterest, double year, short numberOfPaymentsMade) {
