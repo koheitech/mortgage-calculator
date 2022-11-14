@@ -15,12 +15,20 @@ public class Console {
     }
 
     public static double readNumber(String prompt, double min, double max) {
-        System.out.print(prompt);
         double input;
         while (true) {
-            input = scanner.nextDouble();
-            if (min <= input && input <= max) break;
-            System.out.println("Enter a number between " + min + " and " + max);
+            try {
+                System.out.print(prompt);
+                while (true) {
+                    input = scanner.nextDouble();
+                    if (min <= input && input <= max) break;
+                    System.out.println("Enter a number between " + min + " and " + max);
+                }
+                break;
+            } catch (Exception e) {
+                System.out.println("Please check the input data type.");
+                scanner.nextLine();
+            }
         }
         return input;
     }
