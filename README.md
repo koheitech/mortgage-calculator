@@ -1,5 +1,5 @@
 # README - Mosh Mortgage Calculator
-This is the study project for [Mosh Ultimate Java course](https://codewithmosh.com/p/the-ultimate-java-mastery-series).
+This is the study project for [Mosh Ultimate Java course](https://codewithmosh.com/p/the-ultimate-java-mastery-series).  
 Based on the sample program, some refactor and modifications were made.  
 This java program is going to;  
 - input the information from user
